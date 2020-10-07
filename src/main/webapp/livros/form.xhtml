@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+</head>
+
+<body>
+	<h:form>
+		<p:spinner />
+		<div>
+			<h:outputLabel value="Titulo" />
+			<h:inputText value="#{livroBean.livro.titulo}" />
+		</div>
+		<div>
+			<h:outputLabel value="Descrição" />
+			<h:inputTextarea value="#{livroBean.livro.descricao}" rows="2"
+				cols="7" />
+		</div>
+		<div>
+			<h:outputLabel value="Número de Paginas" />
+			<h:inputText value="#{livroBean.livro.paginas}" />
+		</div>
+		<div>
+			<h:outputLabel value="Preço" />
+			<h:inputText value="#{livroBean.livro.preco}" />
+		</div>
+		<div>
+			<h:outputLabel value="Autores" />
+			<h:selectManyListbox value="#{livroBean.autoresId}" converter="javax.faces.Integer">
+				<f:selectItems value="#{livro.autores}" var="autor"
+					itemValue="#{autor.id}" itemLabel="#{autor.nome}">
+				</f:selectItems>
+			</h:selectManyListbox>
+		</div>
+		<h:commandButton action="#{livroBean.Salvar()}" value="Cadastrar" />
+	</h:form>
+</body>
+</html>
