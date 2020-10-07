@@ -9,23 +9,26 @@
 
 <body>
 	<h:form>
-		<p:spinner />
+	
 		<div>
 			<h:outputLabel value="Titulo" />
-			<h:inputText value="#{livroBean.livro.titulo}" />
+			<h:inputText value="#{livroBean.livro.titulo}" required="true" id="titulo"/>
+			<h:message for="titulo"/>
 		</div>
 		<div>
 			<h:outputLabel value="Descrição" />
-			<h:inputTextarea value="#{livroBean.livro.descricao}" rows="2"
-				cols="7" />
+			<h:inputTextarea value="#{livroBean.livro.descricao}" rows="2" cols="7" required="true" id="descricao"/>
+			<h:message for="descricao"/>
 		</div>
 		<div>
 			<h:outputLabel value="Número de Paginas" />
-			<h:inputText value="#{livroBean.livro.paginas}" />
+			<h:inputText value="#{livroBean.livro.paginas}" required="true" id="paginas"/>
+			<h:message for="paginas"/>
 		</div>
 		<div>
 			<h:outputLabel value="Preço" />
-			<h:inputText value="#{livroBean.livro.preco}" />
+			<h:inputText value="#{livroBean.livro.preco}" required="true" id="preco"/>
+			<h:message for="preco"/>
 		</div>
 		<div>
 			<h:outputLabel value="Autores" />
