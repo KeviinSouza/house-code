@@ -9,6 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 public class Livro {
@@ -16,14 +21,19 @@ public class Livro {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@NotBlank
 	private String titulo;
 	
 	@Lob
+	@NotBlank
 	private String descricao;
 	private String paginas;
+	@DecimalMin("20")
 	private BigDecimal preco;
 	
 	@ManyToMany
+	@Size(min=1)
+	@NotNull
 	private List<Autor> autores = new ArrayList<>();
 
 	

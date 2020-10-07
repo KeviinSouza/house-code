@@ -2,8 +2,9 @@ package br.com.housecode.beans;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import br.com.housecode.dao.LivroDAO;
@@ -17,6 +18,8 @@ public class LivroBean {
 	private Livro livro;
 	@Inject
 	private LivroDAO livrodao;
+	@Inject
+	private FacesContext fc;
 	
 	private List<Integer> autoresId = new ArrayList<>();
 	
@@ -25,6 +28,8 @@ public class LivroBean {
 		for (Integer autoresId : autoresId) {
 			livro.getAutores().add(new Autor(autoresId));
 		}
+		fc.getExternalContext().getFlash().setKeepMessages(true);
+		fc.addMessage(null, new FacesMessage("Cadastro Realizado Com Sucesso!!"));
 		livrodao.salvar(livro);
 		
 		return "/livros/list?faces-redirect=true";
