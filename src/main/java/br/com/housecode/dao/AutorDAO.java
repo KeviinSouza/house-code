@@ -6,15 +6,14 @@ import javax.persistence.PersistenceContext;
 
 import br.com.housecode.models.Autor;
 
-public class autorDAO {
+public class AutorDAO {
 	
 	@PersistenceContext
     private EntityManager manager;
 	
 	
-    public List<Autor> getLista() {
-        return  manager.createQuery("select a from Autor a", Autor.class)
-                .getResultList();
+    public List<Autor> listar() {
+        return  manager.createQuery("select a from Autor a", Autor.class).getResultList();
     }
 
 }
