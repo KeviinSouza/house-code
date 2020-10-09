@@ -17,3 +17,11 @@ target/m2e-wtp/web-resources/META-INF/maven/br.com.housecode/house-code/pom.xml
 /target/
 
 src/main/resources/jsf_messages.properties
+
+src/main/webapp/resources/css/
+
+src/main/webapp/resources/js/
+
+src/main/webapp/resources/META-INF/persistence.xml
+
+src/main/webapp/resources/jsf_messages.properties
