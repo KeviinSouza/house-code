@@ -10,9 +10,29 @@
 </h:head>
 
 <h:body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Casa do Código</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="navbar-nav">
+					<li class="nav-link">
+						<h:link value="Cadastro" outcome="form" />
+					</li>
+					<li class="nav-link active">
+						<a href="#">Lista</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
 	<div class="container">
+	<h1>Listagem de Livros</h1>
+	
 	<h:messages />
-	<h:dataTable var="livro" value="#{listaBean.livros}">
+	<h:dataTable var="livro" value="#{listaBean.livros}" >
 		<h:column>
 			<f:facet name="header">Titulo</f:facet>
 			#{livro.titulo}

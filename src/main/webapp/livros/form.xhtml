@@ -4,46 +4,70 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-<head>
-</head>
+	
+<h:head>
+	<h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+</h:head>
 
 <body>
-	<h:form>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Casa do Código</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="navbar-nav">
+					<li class="nav-link">
+						<h:link value="Lista" outcome="list" />
+					</li>
+					<li class="nav-link active">
+						<a href="#">Cadastro</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 	
-		<div>
-			<h:outputLabel value="Titulo" />
-			<h:inputText value="#{livroBean.livro.titulo}" required="true" id="titulo" style="margin-left: 30px; width: 290px; height:30px;"/>
-			<h:message for="titulo"/>
-		</div>
-		<div>
-			<h:outputLabel value="Descrição" />
-			<h:inputTextarea value="#{livroBean.livro.descricao}" rows="2" cols="7" required="true" id="descricao" style="margin-left: 30px; width: 265px; height:30px;"/>
-			<h:message for="descricao"/>
-		</div>
-		<div>
-			<h:outputLabel value="Número de Paginas" />
-			<h:inputText value="#{livroBean.livro.paginas}" required="true" id="paginas" style="margin-left: 30px; width: 200px; height:30px;"/>
-			<h:message for="paginas"/>
-		</div>
-		<div>
-			<h:outputLabel value="Preço" />
-			<h:inputText value="#{livroBean.livro.preco}" required="true" id="preco" style="margin-left: 30px; width: 290px; height:30px;"/>
-			<h:message for="preco"/>
-		</div>
-		<div>
-			<h:outputLabel value="Data de Publicação" />
-			<h:inputText value="#{livroBean.livro.publicacao}" id="publicacao" style="margin-left: 30px; width: 200px; height:30px;" />
-			<h:message for="publicacao" />
-		</div>
-		<div>
-			<h:outputLabel value="Autores" />
-			<h:selectManyListbox value="#{livroBean.livro.autores}" converter="autorConverter" id="autores" style="margin-left: 30px; width: 280px; height:50px;">
-				<f:selectItems value="#{livroBean.autores}" var="autor"
-					itemValue="#{autor}" itemLabel="#{autor.nome}">
-				</f:selectItems>
-			</h:selectManyListbox>
-		</div>
-		<h:commandButton action="#{livroBean.Salvar()}" value="Cadastrar" />
-	</h:form>
+	<div class="container">
+		<h1>Cadastro de Livros</h1>
+		
+		<h:form enctype="multipart/form-data">	
+			<div class="form-group">
+				<h:outputLabel value="Titulo" />
+				<h:inputText value="#{livroBean.livro.titulo}" required="true" id="titulo" class="form-control"/>
+				<h:message for="titulo"/>
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Descrição" />
+				<h:inputTextarea value="#{livroBean.livro.descricao}" rows="2" cols="7" required="true" id="descricao" class="form-control"/>
+				<h:message for="descricao"/>
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Número de Paginas" />
+				<h:inputText value="#{livroBean.livro.paginas}" required="true" id="paginas" class="form-control"/>
+				<h:message for="paginas"/>
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Preço" />
+				<h:inputText value="#{livroBean.livro.preco}" required="true" id="preco" class="form-control"/>
+				<h:message for="preco"/>
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Data de Publicação" />
+				<h:inputText value="#{livroBean.livro.publicacao}" id="publicacao" class="form-control" />
+				<h:message for="publicacao" />
+			</div>
+			<div class="form-group">
+				<h:outputLabel value="Autores" />
+				<h:selectManyListbox value="#{livroBean.livro.autores}" converter="autorConverter" id="autores" class="form-control">
+					<f:selectItems value="#{livroBean.autores}" var="autor"
+						itemValue="#{autor}" itemLabel="#{autor.nome}">
+					</f:selectItems>
+				</h:selectManyListbox>
+			</div>
+			
+			<h:commandButton action="#{livroBean.Salvar()}" value="Cadastrar" class="btn btn-dark"/>
+		</h:form>
+	</div>
 </body>
 </html>
